@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: pocket-bot-paper
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python start.py
+    envVars:
+      - key: APP_PASSWORD
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: HTTPS_ONLY
+        value: 'true'
